@@ -1,0 +1,74 @@
+# FORMATO: ITAU - CNAB240
+# OBJETIVO DO ARQUIVO: COBRANÇA BANCÁRIA
+#
+# TAMANHO DO REGISTRO
+# O Tamanho do Registro é de 240 bytes.
+#
+# ALINHAMENTO DE CAMPOS
+# - Campos Numéricos (9) = Sempre à direita e preenchidos com zeros à esquerda.
+# - Campos Alfanuméricos (X) = Sempre à esquerda e preenchidos com brancos à direita. 
+#
+servico: 'cobranca'
+
+versao: 'fev2016'
+
+layout: 'cnab240'
+remessa:
+  header_arquivo:
+    header:
+      picture: 'X(240)'
+      default: '03300000        2018191228000171437880130021072     006992587           CONTA GLOBAL DE RECEBIMENTO LTBANCO SANTANDER (BRASIL) S/A            222012018      000024040                                                                          '
+  header_lote:
+    header:
+      picture: 'X(240)'
+      default: '03397511T01  040 2018191228000171006992587           437880130021072     CONTA GLOBAL DE RECEBIMENTO LT                                                                                0000002409032015                                         '
+
+  detalhes:
+    # obrigatorio
+    segmento_t:
+      item_01:
+        picture: 'X(15)'
+        default: '0339751300001T '
+      tipo_retorno:
+        picture: 'X(2)'
+      item_02:
+        picture: X(26)
+        default: '437880130021072        000'
+      nosso_numero:
+        picture: 9(9)
+      item_03:
+        picture: X(188)
+        default: '11               0903201500000000002000003344237                         002000000000000000                                        01300210720000000000001500000000000                      '
+    segmento_u:
+      item_01:
+        picture: 'X(15)'
+        default: '0339751300002U '
+      tipo_retorno:
+        picture: 'X(2)'
+      item_02:
+        picture: '9(60)'
+        default: '0'
+      valor_ocorrencia:
+        picture: '9(15)'
+        default: 0
+      valor_cobranca:
+        picture: '9(13)'
+      item_03:
+        picture: 9(32)
+        default: 0
+      data_credito:
+        picture: 'X(8)'
+      data_ocorrencia_02:
+        picture: 'X(8)'
+      item_04:
+        picture: 'X(87)'
+        default: '0000000000000000000000000000                              000                          '
+      
+  trailer_lote:
+    trailer_01:
+      picture: 'X(240)'
+      default: '00003397515         0002060000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000                                                                                                                  '
+  trailer_arquivo:
+    trailler:
+      picture: 'X(240)'
+      default: '03397519         000001000210                                                                                                                                                                                                                   '

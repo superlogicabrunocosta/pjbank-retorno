@@ -1,0 +1,38 @@
+# For more information: https://laravel.com/docs/sail
+version: '3'
+services:
+    mariadb:
+        image: 'mariadb:10'
+        ports:
+            - '33060:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_DATABASE: '${DB_DATABASE}'
+            MYSQL_USER: '${DB_USERNAME}'
+            MYSQL_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        volumes:
+            - './vendor/data/mysql:/var/lib/mysql'
+        healthcheck:
+            test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
+            retries: 3
+            timeout: 5s
+    redis:
+        image: 'redis:alpine'
+        ports:
+            - '63790:6379'
+        volumes:
+            - 'sailredis:/data'
+        healthcheck:
+            test: ["CMD", "redis-cli", "ping"]
+            retries: 3
+            timeout: 5s
+    memcached:
+        image: 'memcached:alpine'
+        ports:
+            - '11281:11211'
+volumes:
+    sailmariadb:
+        driver: local
+    sailredis:
+        driver: local

@@ -1,0 +1,67 @@
+# FORMATO: ITAU - CNAB240
+# OBJETIVO DO ARQUIVO: COBRANÇA BANCÁRIA
+#
+# TAMANHO DO REGISTRO
+# O Tamanho do Registro é de 240 bytes.
+#
+# ALINHAMENTO DE CAMPOS
+# - Campos Numéricos (9) = Sempre à direita e preenchidos com zeros à esquerda.
+# - Campos Alfanuméricos (X) = Sempre à esquerda e preenchidos com brancos à direita. 
+#
+servico: 'cobranca'
+
+versao: 'fev2016'
+
+layout: 'cnab240'
+remessa:
+  header_lote:
+    header:
+      pos: [1,400]
+      picture: 'X(400)'
+      default: '02RETORNO01COBRANCA  00864030006374203000000000231                          301BPP INSTITUICAO              000100000002    2707202707                                                                                                                                                                                                                                                                    000001'
+
+  trailer_lote:
+    trailer_01:
+      pos: [1,3]
+      picture: 'X(400)'
+      default: '9 0000008235512200118600000081137062001148                                                                                                                                                                                                                                                                                                                                                                001188'
+
+  detalhes:
+    # obrigatorio
+    segmento_p:
+      item_01:
+        picture: 'X(37)'
+        default: '10218191228000171030006374203        '
+      nosso_numero:
+        picture: '9(25)'
+      nosso_numero_02:
+        picture: '9(11)'
+      item_02:
+        picture: 'X(35)'
+        default: '0000000013771                    10'
+      tipo_retorno:
+        picture: 'X(2)'
+      data_ocorrencia:
+        picture: 'X(6)'
+      nosso_numero_03:
+        picture: '9(10)'
+      item_03:
+        picture: 'X(20)'
+        default: '                    '
+      data_vencimento:
+        picture: '9(6)'
+      valor_cobranca:
+        picture: '9(13)'
+      item_04:
+        picture: 'X(88)'
+        default: '34101646  0000000000000                                       00000000000000000000000000'
+      valor_ocorrencia:
+        picture: '9(13)'
+      item_05:
+        picture: 'X(29)'
+        default: '00000000000000000000000000   '
+      data_credito:
+        picture: '9(6)'
+      item_06:
+        picture: X(105)
+        default: '                                                                0000000000009218000000000000 000002'
