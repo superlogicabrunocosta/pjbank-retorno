@@ -286,7 +286,7 @@ abstract class AbstractBank
 
     public function generateFile()
     {
-        $remessaLayout = new Layout(file_get_contents(base_path('app/Layouts/' . $this->getConfig()['bank'] . '.yml')));
+        $remessaLayout = new Layout(base_path('app/Layouts/' . $this->getConfig()['bank'] . '.yml'));
 
         $remessa = new Remessa($remessaLayout);
 

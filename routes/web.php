@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome');
+Route::redirect('/', '/conta');
 Route::resource('conta', AccountController::class)->only(['index', 'create', 'store']);
 Route::resource('cobranca', ChargeController::class);
 Route::get('retorno/charges', [RecurrenceController::class, 'charges'])->name('retorno.cobrancas');
