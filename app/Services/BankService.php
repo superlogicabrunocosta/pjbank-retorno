@@ -4,6 +4,13 @@ namespace App\Services;
 
 class BankService
 {
+    public function getBankActiveGenerateReturn()
+    {
+        return [
+            '301' => 'BPP',
+            '033' => 'Santander',
+        ];
+    }
     public function getAllBanks()
     {
         return [

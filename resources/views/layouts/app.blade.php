@@ -44,6 +44,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('retorno.index') }}">{{ __('Retorno') }}</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('retorno-fake.index') }}">{{ __('Retorno Fake') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

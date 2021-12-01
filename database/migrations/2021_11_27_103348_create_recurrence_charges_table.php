@@ -19,7 +19,7 @@ class CreateRecurrenceChargesTable extends Migration
 		Schema::create('recurrence_charges', function(Blueprint $table) {
 			$table->id('id');
 			$table->foreignId('recurrence_id')->constrained('recurrences');
-			$table->foreignId('charge_id')->constrained('charges');
+			$table->unsignedBigInteger('charge_id')->nullable();
 			$table->unsignedDouble('value_recurrence');
 			$table->unsignedDouble('value_charge');
 			$table->date('date_recurrence');
